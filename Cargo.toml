@@ -1,0 +1,37 @@
+[package]
+name = "grepping-boom"
+description = "stupid neovim plugin that booms after you're done with grepping"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[lints.clippy]
+cargo = "warn"
+nursery = "warn"
+perf = "warn"
+style = "warn"
+
+[dependencies]
+thiserror = "1.0.64"
+
+[dependencies.nvim-oxi]
+version = "0.5.1"
+default-features = false
+features = ["neovim-0-10", "libuv"]
+
+[dependencies.rodio]
+version = "0.19.0"
+default-features = false
+features = ["vorbis"]
+
+[dependencies.tokio]
+version = "1.40.0"
+default-features = false
+features = ["macros", "rt-multi-thread", "sync", "time"]
+
+[profile.release]
+strip = true
+lto = true
+opt-level = 3
