@@ -18,10 +18,15 @@ With [Lazy.nvim](https://github.com/folke/lazy.nvim):
 {
   "nekowinston/grepping-boom.nvim",
   build = "make", -- check the requirements above!
-  config = function()
-    -- yes this is ugly, I'll probably fix it sometime so we can just use
-    -- `config = true`
-    require("grepping-boom")
-  end
+  opts = {},
 }
 ```
+
+### Usage
+
+When you had enough of booming after grepping, you can face the consequences of
+your actions via `:TwitchBan`, which will unload the plugin.
+
+### Credit / blame
+
+Feel free to blame the existance of this plugin on EMiNY from the Richcord.
