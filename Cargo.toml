@@ -1,14 +1,22 @@
 [package]
 name = "grepping-boom"
 description = "stupid neovim plugin that booms after you're done with grepping"
+repository = "https://github.com/nekowinston/gripping-boom.nvim"
+license = "MIT"
 version = "0.1.0"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib"]
 
+[features]
+default = ["neovim-0-10"]
+neovim-0-9 = ["nvim-oxi/neovim-0-9"]
+neovim-0-10 = ["nvim-oxi/neovim-0-10"]
+neovim-nightly = ["nvim-oxi/neovim-nightly"]
+
 [lints.clippy]
-cargo = "warn"
+complexity = "warn"
 nursery = "warn"
 perf = "warn"
 style = "warn"
