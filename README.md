@@ -29,4 +29,4 @@ your actions via `:TwitchBan`, which will unload the plugin.
 
 ### Credit / blame
 
-Feel free to blame the existance of this plugin on EMiNY from the Richcord.
+Feel free to blame the existence of this plugin on EMiNY from the Richcord.
