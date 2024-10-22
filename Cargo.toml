@@ -10,7 +10,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [features]
-default = ["neovim-0-10"]
+default = []
 neovim-0-9 = ["nvim-oxi/neovim-0-9"]
 neovim-0-10 = ["nvim-oxi/neovim-0-10"]
 neovim-nightly = ["nvim-oxi/neovim-nightly"]
@@ -27,7 +27,6 @@ thiserror = "1.0.64"
 [dependencies.nvim-oxi]
 version = "0.5.1"
 default-features = false
-features = ["neovim-0-10"]
 
 [dependencies.rodio]
 version = "0.19.0"
