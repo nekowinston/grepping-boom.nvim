@@ -79,15 +79,15 @@ fn setup(_: Object) -> Result<(), Error> {
 
 #[tokio::main]
 async fn send_numbers(handle: AsyncHandle, sender: UnboundedSender<()>) -> Result<(), Error> {
-    sender.send(())?;
-    handle.send()?;
-
     let (_sink, stream_handle) = OutputStream::try_default()?;
     let sink = Sink::try_new(&stream_handle)?;
 
     let source = Decoder::new(BufReader::new(Cursor::new(ZOOMER_BOOM)))?;
     sink.append(source);
     sink.sleep_until_end();
+
+    sender.send(())?;
+    handle.send()?;
 
     Ok(())
 }
