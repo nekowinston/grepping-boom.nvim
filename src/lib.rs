@@ -8,7 +8,7 @@ use std::{
 use nvim_oxi::{
     api::{
         self,
-        opts::{CreateAutocmdOpts, CreateCommandOpts},
+        opts::{CreateAutocmdOpts, CreateCommandOpts, OptionOpts, ShouldDeleteAutocmd},
         types::{AutocmdCallbackArgs, CommandArgs, CommandNArgs},
     },
     Dictionary, Function, Object,
@@ -46,10 +46,9 @@ fn boom() -> Result<Dictionary, Error> {
 fn setup(_: Object) -> Result<(), Error> {
     let bufleave_opts = CreateAutocmdOpts::builder()
         .patterns(["*"])
-        .callback(|cmd_args: AutocmdCallbackArgs| {
-            let in_telescope_prompt = cmd_args
-                .buffer
-                .get_option::<String>("filetype")
+        .callback(|cmd_args: AutocmdCallbackArgs| -> ShouldDeleteAutocmd {
+            let opts = OptionOpts::builder().buffer(cmd_args.buffer).build();
+            let in_telescope_prompt = api::get_option_value::<String>("filetype", &opts)
                 .unwrap_or_default()
                 .eq("TelescopePrompt");
 
