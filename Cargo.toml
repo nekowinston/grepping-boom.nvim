@@ -27,7 +27,7 @@ thiserror = "1.0.64"
 [dependencies.nvim-oxi]
 version = "0.5.1"
 default-features = false
-features = ["neovim-0-10", "libuv"]
+features = ["neovim-0-10"]
 
 [dependencies.rodio]
 version = "0.19.0"
@@ -37,7 +37,7 @@ features = ["vorbis"]
 [dependencies.tokio]
 version = "1.40.0"
 default-features = false
-features = ["macros", "rt-multi-thread", "sync", "time"]
+features = ["macros", "rt-multi-thread"]
 
 [profile.release]
 strip = true

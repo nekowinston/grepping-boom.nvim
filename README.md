@@ -24,6 +24,11 @@ With [Lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ### Usage
 
+If you need to change the max volume of the booms, you can use
+`:BoomVolume <volume>` where `<volume>` is a value between `0.0` and `1.0`.
+Going above 1.0 is possible but not recommended (the author will not be held
+responsible for plugin usage related hearing loss).
+
 When you had enough of booming after grepping, you can face the consequences of
 your actions via `:TwitchBan`, which will unload the plugin.
 
